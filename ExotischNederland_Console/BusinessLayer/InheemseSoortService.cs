@@ -6,8 +6,8 @@ internal class InheemseSoortService
     {
         _repository = new InheemseSoortRepository();
     }
-    
-    public void RegistreerInheemseSoort(string naam, string locatieNaam, DateTime datum, Decimal longitude, Decimal latitude)
+
+    public void RegistreerInheemseSoort(string naam, string locatieNaam, Decimal longitude, Decimal latitude, DateTime datum)
     {
         var soort = new InheemseSoort
         (
