@@ -1,7 +1,7 @@
-﻿var service = new InheemseSoortService();
-bool gebruikerMaaktValideKeuze = true;
+﻿InheemseSoortService _service = new InheemseSoortService();
+bool _gebruikerMaaktValideKeuze = true;
 
-while (gebruikerMaaktValideKeuze)
+while (_gebruikerMaaktValideKeuze)
 {
     Console.WriteLine("Menu:");
     Console.WriteLine("1. Registreer een nieuwe inheemse soort");
@@ -31,12 +31,12 @@ while (gebruikerMaaktValideKeuze)
         DateTime datum = DateTime.ParseExact(datumAntwoord, "dd-MM-yyyy HH:mm",
                                        System.Globalization.CultureInfo.InvariantCulture);;
 
-        service.RegistreerInheemseSoort(naam, locatieNaam, longitude, laitude, datum);
+        _service.RegistreerInheemseSoort(naam, locatieNaam, longitude, laitude, datum);
         Console.WriteLine("Soort geregistreerd!\n");
     }
     else if (keuze == "2")
     {
-        var soorten = service.HaalAlleInheemseSoortenOp();
+        var soorten = _service.HaalAlleInheemseSoortenOp();
         Console.WriteLine("Geregistreerde soorten:");
 
         foreach (var soort in soorten)
@@ -48,7 +48,7 @@ while (gebruikerMaaktValideKeuze)
     else if (keuze == "3")
     {
         Console.WriteLine("Programma afgesloten.");
-        gebruikerMaaktValideKeuze = false;
+        _gebruikerMaaktValideKeuze = false;
     }
     else
     {
