@@ -1,0 +1,10 @@
+Install SqLite extension in VSCode
+
+Run commands based on the location of the sqlite3.exe
+
+Example:
+Step 1 (Create the database)
+C:\Temp\Coding\sqlite>sqlite3.exe ExotischNederland.db
+Step 2 (Read the script and apply it to the database)
+sqlite> .read C:\Temp\Coding\Zuyd_N_Tier\3-tier-architecture-demo\Scripts\ExotischNederlandDatabase.sql
+Step 3 (You should now have a .db file with your database name that you can use)

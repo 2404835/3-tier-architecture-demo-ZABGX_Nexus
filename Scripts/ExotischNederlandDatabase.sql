@@ -1,5 +1,4 @@
-CREATE DATABASE ExotischNederland_Database;
-
+--SqLite
 CREATE TABLE InheemseSoort (
     Naam TEXT NOT NULL,
     LocatieNaam TEXT NOT NULL,
