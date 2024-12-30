@@ -29,7 +29,7 @@ while (_gebruikerMaaktValideKeuze)
         Console.Write($"(Voorbeeld: 23-12-2024 14:45) {Environment.NewLine} Datum: ");
         string datumAntwoord = Console.ReadLine();
         DateTime datum = DateTime.ParseExact(datumAntwoord, "dd-MM-yyyy HH:mm",
-                                       System.Globalization.CultureInfo.InvariantCulture);;
+                                       System.Globalization.CultureInfo.InvariantCulture);
 
         _service.RegistreerInheemseSoort(naam, locatieNaam, longitude, laitude, datum);
         Console.WriteLine("Soort geregistreerd!\n");
