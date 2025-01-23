@@ -2,7 +2,7 @@ using Microsoft.Data.Sqlite;
 
 internal class InheemseSoortRepository
 {
-    private readonly string _connectionString = "Server=48.209.43.227,1433;Database=ExotischNederland.db;User Id=ZABGX-Nexus;ZABGXNexus123!;";
+    private readonly string _connectionString = @"Data Source=\\SQL-LITE\SQLiteStudio\ExotischNederland.db";
 
     public InheemseSoortRepository()
     {
