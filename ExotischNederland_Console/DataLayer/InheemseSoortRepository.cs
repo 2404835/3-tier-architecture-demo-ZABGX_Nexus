@@ -2,7 +2,8 @@ using Microsoft.Data.Sqlite;
 
 internal class InheemseSoortRepository
 {
-    private readonly string _connectionString = @"Data Source=\\SQL-LITE\SQLiteStudio\ExotischNederland.db";
+    //connection werkt alleen als je de code runt op de VM
+    private readonly string _connectionString = @"Data Source="C:\Users\ZABGX\Downloads\ExotischNederland.db";
 
     public InheemseSoortRepository()
     {
