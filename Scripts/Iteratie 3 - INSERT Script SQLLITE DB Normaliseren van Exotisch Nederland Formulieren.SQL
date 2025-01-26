@@ -107,7 +107,6 @@ INSERT INTO GEBRUIKER (Weergavenaam, naam, email, biografie, taal, geslacht, geb
 ('tomtomassen', 'Tom Tomassen', 'tom@example.com', 'Student', 'Nederlands', 'M', 1995, '0612345683', 'Nederland'),
 ('sarahsmit', 'Sarah Smit', 'sarah@example.com', 'Onderzoeker', 'Nederlands', 'V', 1983, '0612345684', 'Nederland'),
 ('robertrutten', 'Robert Rutten', 'robert@example.com', 'Bioloog', 'Nederlands', 'M', 1988, '0612345685', 'Nederland'),
-('klaasklaassen', 'Klaas Klaassen', 'klaas@example.com', 'Onderzoeker', 'Nederlands', 'M', 1980, '0612345680', 'Nederland');
 ('emmadejong', 'Emma de Jong', 'emma@example.com', 'Natuurliefhebber', 'Nederlands', 'V', 1991, '0612345686', 'Nederland'),
 ('frankfransen', 'Frank Fransen', 'frank@example.com', 'Onderzoeker', 'Nederlands', 'M', 1984, '0612345687', 'Nederland'),
 ('sophiesmit', 'Sophie Smit', 'sophie@example.com', 'Bioloog', 'Nederlands', 'V', 1986, '0612345688', 'Nederland'),
