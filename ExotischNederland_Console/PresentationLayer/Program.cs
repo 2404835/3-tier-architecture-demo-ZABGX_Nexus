@@ -1,57 +1,172 @@
-﻿InheemseSoortService _service = new InheemseSoortService();
-bool _gebruikerMaaktValideKeuze = true;
+using MySql.Data.MySqlClient;
+using MySQLTest;
 
-while (_gebruikerMaaktValideKeuze)
+class Program
 {
-    Console.WriteLine("Menu:");
-    Console.WriteLine("1. Registreer een nieuwe inheemse soort");
-    Console.WriteLine("2. Toon alle geregistreerde inheemse soorten");
-    Console.WriteLine("3. Afsluiten");
-    Console.Write("Maak een keuze: ");
-    string keuze = Console.ReadLine();
-  
-    if (keuze == "1")
+    static void Main()
     {
-        Console.Write("Naam van de soort: ");
-        string naam = Console.ReadLine();
+        OrganismeService _service = new OrganismeService();
+        bool _gebruikerMaaktValideKeuze = true;
 
-        Console.Write("Naam van de locatie: ");
-        string locatieNaam  = Console.ReadLine();
-
-        Console.Write("Longitude: ");
-        string longitudeAntwoord = Console.ReadLine();
-        Decimal longitude = Convert.ToDecimal(longitudeAntwoord);
-
-        Console.Write("Latitude: ");
-        string latitudeAntwoord = Console.ReadLine();
-        Decimal laitude = Convert.ToDecimal(latitudeAntwoord);
-
-        Console.Write($"(Voorbeeld: 23-12-2024 14:45) {Environment.NewLine} Datum: ");
-        string datumAntwoord = Console.ReadLine();
-        DateTime datum = DateTime.ParseExact(datumAntwoord, "dd-MM-yyyy HH:mm",
-                                       System.Globalization.CultureInfo.InvariantCulture);
-
-        _service.RegistreerInheemseSoort(naam, locatieNaam, longitude, laitude, datum);
-        Console.WriteLine("Soort geregistreerd!\n");
-    }
-    else if (keuze == "2")
-    {
-        var soorten = _service.HaalAlleInheemseSoortenOp();
-        Console.WriteLine("Geregistreerde soorten:");
-
-        foreach (var soort in soorten)
+        while (_gebruikerMaaktValideKeuze)
         {
-            Console.WriteLine($"Naam: {soort.Naam}, Locatie: {soort.LocatieNaam}, Longitude: {soort.Longitude}, Latitude: {soort.Latitude}, Datum: {soort.Datum}");
+            Console.WriteLine("Menu:");
+            Console.WriteLine("1. Registreer een nieuw Dier");
+            Console.WriteLine("2. Registreer een nieuwe Plant");
+            Console.WriteLine("3. Toon alle geregistreerde dieren en planten");
+            Console.WriteLine("4. Filter op (Dier/Plant/Exotisch/Inheems)");
+            Console.WriteLine("5. Afsluiten");
+            Console.Write("Maak een keuze: ");
+            string keuze = Console.ReadLine();
+
+            if (keuze == "1")
+            {
+
+                Console.Write("Wat is de naam van het dier?");
+                string naam = Console.ReadLine();
+
+                Console.Write("Is het een inheem of exotisch dier?");
+                string oorsprong = Console.ReadLine();
+
+                Console.Write("Waar komt het dier vooral voor?");
+                string leefgebied = Console.ReadLine();
+
+
+
+
+                _service.RegistreerDier(naam, oorsprong, leefgebied);
+                Console.WriteLine("Info geregistreerd!\n");
+            }
+            else if (keuze == "2")
+            {
+                Console.Write("Wat is de naam van de plant?");
+                string naam = Console.ReadLine();
+
+                Console.Write("Is het een inheemse of exotische plant?");
+                string oorsprong = Console.ReadLine();
+
+                Console.Write("Hoe hoog kan de plant worden in meters?");
+                string hoogte = Console.ReadLine();
+
+                decimal hoogte_decimal = decimal.Parse(hoogte);
+
+
+
+
+                _service.RegistreerPlant(naam, oorsprong, hoogte_decimal);
+                Console.WriteLine("Info geregistreerd!\n");
+
+
+
+
+            }
+            else if (keuze == "3")
+            {
+                var soorten_dieren = _service.HaalAlleDierenOp();
+                var soorten_planten = _service.HaalAllePlantenOp();
+                Console.WriteLine("Geregistreerde soorten:");
+
+                foreach (var soort in soorten_dieren)
+                {
+                    Console.WriteLine($"Dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
+                }
+                foreach (var soort in soorten_planten)
+                {
+                    Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+                }
+                Console.WriteLine();
+            }
+            else if (keuze == "4")
+            {
+                Console.WriteLine("Kies uit de onderstaande filters");
+                Console.WriteLine("1. Dier");
+                Console.WriteLine("2. Plant");
+                Console.WriteLine("3. Exotisch");
+                Console.WriteLine("4. Inheems");
+                Console.WriteLine("Keuze: ");
+                string input = Console.ReadLine();
+
+                if (input == "1")
+                {
+                    var soorten_dieren = _service.HaalAlleDierenOp();
+                    foreach (var soort in soorten_dieren)
+                    {
+                        Console.WriteLine($"Dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
+                    }
+                }
+                if (input == "2")
+                {
+                    var soorten_planten = _service.HaalAllePlantenOp();
+                    foreach (var soort in soorten_planten)
+                    {
+                        Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+                    }
+                }
+                if (input == "3")
+                {
+                    var soorten_dieren = _service.HaalAlleDierenOp();
+                    var soorten_planten = _service.HaalAllePlantenOp();
+                    Console.WriteLine("Geregistreerde exotsiche soorten:");
+
+                    foreach (var soort in soorten_dieren)
+                    {
+                        if (soort.Oorsprong.ToLower() == "exotisch")
+                        {
+
+                            Console.WriteLine($"dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
+
+                        }
+                    }
+                    foreach (var soort in soorten_planten)
+                    {
+                        if (soort.Oorsprong.ToLower() == "exotisch")
+                        {
+
+                            Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+
+                        }
+                    }
+                }
+                if (input == "4")
+                {
+                    var soorten_dieren = _service.HaalAlleDierenOp();
+                    var soorten_planten = _service.HaalAllePlantenOp();
+                    Console.WriteLine("Geregistreerde exotsiche soorten:");
+
+                    foreach (var soort in soorten_dieren)
+                    {
+                        if (soort.Oorsprong.ToLower() == "inheems")
+                        {
+
+                            Console.WriteLine($"dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
+
+                        }
+                    }
+                    foreach (var soort in soorten_planten)
+                    {
+                        if (soort.Oorsprong.ToLower() == "inheems")
+                        {
+
+                            Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+
+                        }
+                    }
+
+
+                }
+                }
+                else if (keuze == "5")
+                {
+                    Console.WriteLine("Programma afgesloten.");
+                    _gebruikerMaaktValideKeuze = false;
+                }
+                else
+                {
+                    Console.WriteLine("Ongeldige keuze, probeer opnieuw.\n");
+                }
+            }
         }
-        Console.WriteLine();
     }
-    else if (keuze == "3")
-    {
-        Console.WriteLine("Programma afgesloten.");
-        _gebruikerMaaktValideKeuze = false;
-    }
-    else
-    {
-        Console.WriteLine("Ongeldige keuze, probeer opnieuw.\n");
-    }
-}
+
+        
+
