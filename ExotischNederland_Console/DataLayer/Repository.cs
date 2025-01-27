@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySQLTest
+namespace MySQLTest.DataLayer
 {
     using System.Net.NetworkInformation;
     using MySql.Data.MySqlClient;
+    using MySQLTest.Models;
 
     internal class OrganismeRepository
     {
@@ -112,6 +113,6 @@ namespace MySQLTest
 
             return soorten;
         }
-       
+
     }
 }
