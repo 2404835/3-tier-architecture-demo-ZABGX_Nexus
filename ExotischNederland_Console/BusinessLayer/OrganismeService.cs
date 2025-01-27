@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySQLTest.DataLayer;
+using MySQLTest.Models;
 
-namespace MySQLTest
+namespace MySQLTest.BusinessLayer
 {
     internal class OrganismeService
     {
