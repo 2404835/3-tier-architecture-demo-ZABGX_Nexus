@@ -1,5 +1,5 @@
 using MySql.Data.MySqlClient;
-using MySQLTest;
+using MySQLTest.BusinessLayer;
 
 class Program
 {
