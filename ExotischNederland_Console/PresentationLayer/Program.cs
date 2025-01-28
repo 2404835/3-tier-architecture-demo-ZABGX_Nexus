@@ -22,13 +22,13 @@ class Program
             if (keuze == "1")
             {
 
-                Console.Write("Wat is de naam van het dier?");
+                Console.Write("Wat is de naam van het dier? ");
                 string naam = Console.ReadLine();
 
-                Console.Write("Is het een inheem of exotisch dier?");
+                Console.Write("Is het een inheems of exotisch dier? ");
                 string oorsprong = Console.ReadLine();
 
-                Console.Write("Waar komt het dier vooral voor?");
+                Console.Write("Waar komt het dier vooral voor? ");
                 string leefgebied = Console.ReadLine();
 
 
@@ -39,13 +39,13 @@ class Program
             }
             else if (keuze == "2")
             {
-                Console.Write("Wat is de naam van de plant?");
+                Console.Write("Wat is de naam van de plant? ");
                 string naam = Console.ReadLine();
 
-                Console.Write("Is het een inheemse of exotische plant?");
+                Console.Write("Is de plant inheems of exotisch? ");
                 string oorsprong = Console.ReadLine();
 
-                Console.Write("Hoe hoog kan de plant worden in meters?");
+                Console.Write("Hoe hoog kan de plant worden in meters? ");
                 string hoogte = Console.ReadLine();
 
                 decimal hoogte_decimal = decimal.Parse(hoogte);
@@ -106,7 +106,7 @@ class Program
                 {
                     var soorten_dieren = _service.HaalAlleDierenOp();
                     var soorten_planten = _service.HaalAllePlantenOp();
-                    Console.WriteLine("Geregistreerde exotsiche soorten:");
+                    Console.WriteLine("Geregistreerde exotische soorten:");
 
                     foreach (var soort in soorten_dieren)
                     {
@@ -131,7 +131,7 @@ class Program
                 {
                     var soorten_dieren = _service.HaalAlleDierenOp();
                     var soorten_planten = _service.HaalAllePlantenOp();
-                    Console.WriteLine("Geregistreerde exotsiche soorten:");
+                    Console.WriteLine("Geregistreerde inheemse soorten:");
 
                     foreach (var soort in soorten_dieren)
                     {
