@@ -113,7 +113,7 @@ class Program
                         if (soort.Oorsprong.ToLower() == "exotisch")
                         {
 
-                            Console.WriteLine($"dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
+                            Console.WriteLine($"Dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
 
                         }
                     }
@@ -138,7 +138,7 @@ class Program
                         if (soort.Oorsprong.ToLower() == "inheems")
                         {
 
-                            Console.WriteLine($"dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
+                            Console.WriteLine($"Dier: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Leefgebied: {soort.Leefgebied}");
 
                         }
                     }
