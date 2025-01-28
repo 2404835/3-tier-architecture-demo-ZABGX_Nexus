@@ -10,6 +10,7 @@ class Program
 
         while (_gebruikerMaaktValideKeuze)
         {
+            Console.Clear();
             Console.WriteLine("Menu:");
             Console.WriteLine("1. Registreer een nieuw Dier");
             Console.WriteLine("2. Registreer een nieuwe Plant");
@@ -21,7 +22,7 @@ class Program
 
             if (keuze == "1")
             {
-
+                Console.Clear();
                 Console.Write("Wat is de naam van het dier? ");
                 string naam = Console.ReadLine();
 
@@ -35,10 +36,14 @@ class Program
 
 
                 _service.RegistreerDier(naam, oorsprong, leefgebied);
-                Console.WriteLine("Info geregistreerd!\n");
+                Console.WriteLine("\nInfo geregistreerd!\nDruk op <Enter> om terug naar het Menu");
+                Console.ReadLine();
+
+
             }
             else if (keuze == "2")
             {
+                Console.Clear();
                 Console.Write("Wat is de naam van de plant? ");
                 string naam = Console.ReadLine();
 
@@ -54,7 +59,9 @@ class Program
 
 
                 _service.RegistreerPlant(naam, oorsprong, hoogte_decimal);
-                Console.WriteLine("Info geregistreerd!\n");
+                Console.WriteLine("\nInfo geregistreerd!\nDruk op <Enter> om terug naar het Menu");
+                Console.ReadLine();
+
 
 
 
@@ -62,6 +69,7 @@ class Program
             }
             else if (keuze == "3")
             {
+                Console.Clear();
                 var soorten_dieren = _service.HaalAlleDierenOp();
                 var soorten_planten = _service.HaalAllePlantenOp();
                 Console.WriteLine("Geregistreerde soorten:");
@@ -74,10 +82,13 @@ class Program
                 {
                     Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
                 }
-                Console.WriteLine();
+                Console.WriteLine("\nDruk op <Enter> om terug naar het Menu");
+                Console.ReadLine();
+
             }
             else if (keuze == "4")
             {
+                Console.Clear();
                 Console.WriteLine("Kies uit de onderstaande filters");
                 Console.WriteLine("1. Dier");
                 Console.WriteLine("2. Plant");
@@ -154,7 +165,9 @@ class Program
 
 
                 }
-                }
+                Console.WriteLine("\nDruk op <Enter> om terug naar het Menu");
+                Console.ReadLine();
+            }
                 else if (keuze == "5")
                 {
                     Console.WriteLine("Programma afgesloten.");
