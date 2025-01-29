@@ -25,13 +25,15 @@ namespace MySQLTest.Models
         public string Naam { get; private set; }
         public string Oorsprong { get; private set; }
         public decimal Hoogte { get; private set; }
+        public string Locatie { get; private set; }
 
 
-        public Plant(string naam, string oorprong, decimal hoogte)
+        public Plant(string naam, string oorprong, decimal hoogte, string locatie)
         {
             Naam = naam;
             Oorsprong = oorprong;
             Hoogte = hoogte;
+            Locatie = locatie;
         }
     }
 }

@@ -54,11 +54,13 @@ class Program
                 string hoogte = Console.ReadLine();
 
                 decimal hoogte_decimal = decimal.Parse(hoogte);
+                Console.Write("Waar heb je de plant gevonden? ");
+                string locatie =Console.ReadLine();
 
 
 
 
-                _service.RegistreerPlant(naam, oorsprong, hoogte_decimal);
+                _service.RegistreerPlant(naam, oorsprong, hoogte_decimal, locatie);
                 Console.WriteLine("\nInfo geregistreerd!\nDruk op <Enter> om terug naar het Menu");
                 Console.ReadLine();
 
@@ -80,7 +82,7 @@ class Program
                 }
                 foreach (var soort in soorten_planten)
                 {
-                    Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+                    Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}, Locatie: {soort.Locatie}");
                 }
                 Console.WriteLine("\nDruk op <Enter> om terug naar het Menu");
                 Console.ReadLine();
@@ -110,7 +112,7 @@ class Program
                     var soorten_planten = _service.HaalAllePlantenOp();
                     foreach (var soort in soorten_planten)
                     {
-                        Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+                        Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}, Locatie: {soort.Locatie}");
                     }
                 }
                 if (input == "3")
@@ -133,7 +135,7 @@ class Program
                         if (soort.Oorsprong.ToLower() == "exotisch")
                         {
 
-                            Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+                            Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}, Locatie: {soort.Locatie}");
 
                         }
                     }
@@ -158,7 +160,7 @@ class Program
                         if (soort.Oorsprong.ToLower() == "inheems")
                         {
 
-                            Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}");
+                            Console.WriteLine($"Plant: Naam: {soort.Naam}, Oorsprong: {soort.Oorsprong}, Hoogte: {soort.Hoogte}, Locatie: {soort.Locatie}");
 
                         }
                     }

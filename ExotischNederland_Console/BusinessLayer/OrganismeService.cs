@@ -28,13 +28,14 @@ namespace MySQLTest.BusinessLayer
 
             _repository.VoegDierToe(soort_dier);
         }
-        public void RegistreerPlant(string naam, string oorsprong, decimal hoogte)
+        public void RegistreerPlant(string naam, string oorsprong, decimal hoogte, string locatie)
         {
             var soort_plant = new Plant
             (
                 naam,
                 oorsprong,
-                hoogte
+                hoogte,
+                locatie
             );
 
             _repository.VoegPlantToe(soort_plant);

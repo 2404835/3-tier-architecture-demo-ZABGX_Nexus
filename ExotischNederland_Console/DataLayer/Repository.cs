@@ -46,13 +46,14 @@ namespace MySQLTest.DataLayer
             connection.Open();
 
             string insertQuery = @"
-            INSERT INTO plant (Naam, Oorsprong, Hoogte)
-            VALUES (@Naam, @Oorsprong, @Hoogte);";
+            INSERT INTO plant (Naam, Oorsprong, Hoogte, Locatie)
+            VALUES (@Naam, @Oorsprong, @Hoogte, @Locatie);";
 
             using var command = new MySqlCommand(insertQuery, connection);
             command.Parameters.AddWithValue("@Naam", plant.Naam);
             command.Parameters.AddWithValue("@Oorsprong", plant.Oorsprong);
             command.Parameters.AddWithValue("@Hoogte", plant.Hoogte);
+            command.Parameters.AddWithValue("@Locatie", plant.Locatie);
 
             command.ExecuteNonQuery();
         }
@@ -93,7 +94,7 @@ namespace MySQLTest.DataLayer
             connection.Open();
 
             string selectQuery = @"
-            SELECT Naam, Oorsprong, Hoogte FROM plant;";
+            SELECT Naam, Oorsprong, Hoogte, Locatie FROM plant;";
             using var command = new MySqlCommand(selectQuery, connection);
 
             using var reader = command.ExecuteReader();
@@ -102,12 +103,14 @@ namespace MySQLTest.DataLayer
                 string naam = reader.GetString(0);
                 string oorsprong = reader.GetString(1);
                 decimal hoogte = reader.GetDecimal(2);
+                string locatie = reader.GetString(3);
 
                 soorten.Add(new Plant
                 (
                     naam,
                     oorsprong,
-                    hoogte
+                    hoogte,
+                    locatie
                 ));
             }
 
